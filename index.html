@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      font-family: sans-serif;
+      background: #f5f5f5;
+    }
+
+    /* Desktop: full page embed */
+    iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Mobile: redirect immediately, show nothing */
+    .mobile-redirect {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <iframe src="menu.pdf" title="Menu"></iframe>
+
+  <script>
+    // On mobile, redirect straight to the PDF so the native viewer opens it
+    if (window.innerWidth <= 640 || /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
+      window.location.replace('menu.pdf');
+    }
+  </script>
+</body>
+</html>
